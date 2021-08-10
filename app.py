@@ -1,5 +1,7 @@
 import os
-from flask import (Flask, flash, render_template, redirect, request, session, url_for)
+from flask import (
+    Flask, flash, render_template,
+    redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -22,7 +24,7 @@ def get_tasks():
     tasks = mongo.db.tasks.find()
     return render_template("tasks.html", tasks=tasks)
 
-
+                                                                  
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
